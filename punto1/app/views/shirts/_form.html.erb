@@ -1,0 +1,32 @@
+<%= form_with(model: shirt, local: true) do |form| %>
+  <% if shirt.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shirt.errors.count, "error") %> prohibited this shirt from being saved:</h2>
+
+      <ul>
+      <% shirt.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :material %>
+    <%= form.text_field :material, id: :shirt_material %>
+  </div>
+
+  <div class="field">
+    <%= form.label :size %>
+    <%= form.text_field :size, id: :shirt_size %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :shirt_price %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
